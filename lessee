@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Arpita ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#fff6f8;
+  --card:#ffffff;
+  --text:#2a2a2a;
+  --soft:#7a7a7a;
+  --accent:#ff5c8a;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:var(--bg);
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.card{
+  max-width:520px;
+  width:100%;
+  background:var(--card);
+  border-radius:22px;
+  padding:40px 28px;
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+.step{
+  display:none;
+  animation:slideUp .5s ease forwards;
+}
+
+.step.active{
+  display:block;
+}
+
+h1{
+  font-family:'Patrick Hand',cursive;
+  font-size:2rem;
+  margin-bottom:14px;
+}
+
+p{
+  font-size:1rem;
+  line-height:1.6;
+  color:var(--soft);
+  margin-bottom:24px;
+}
+
+.handwritten{
+  font-family:'Patrick Hand',cursive;
+  font-size:1.15rem;
+  color:var(--text);
+  line-height:1.7;
+}
+
+button{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:14px 28px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:1rem;
+  transition:.2s;
+  box-shadow:0 8px 18px rgba(255,92,138,.35);
+}
+
+button:hover{
+  transform:translateY(-2px);
+}
+
+.actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  position:relative;
+  flex-wrap:wrap;
+}
+
+.secondary{
+  background:#999;
+  position:relative;
+  transition:transform .12s ease, background .2s ease;
+}
+
+.emoji{
+  font-size:2.5rem;
+  margin-bottom:10px;
+}
+
+footer{
+  margin-top:20px;
+  color:#aaa;
+  font-size:.85rem;
+}
+
+@keyframes slideUp{
+  from{
+    opacity:0;
+    transform:translateY(15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- STEP 1 -->
+  <div class="step active">
+    <div class="emoji">🎂</div>
+    <h1>Hey Arpita</h1>
+    <p>
+      Happy Birthday. 🎉<br>
+      I made something small for you.
+    </p>
+    <button onclick="nextStep()">Okay, show me</button>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <h1>A small confession</h1>
+    <p class="handwritten">
+      I like you.<br>
+      I tried pretending I didn't.<br>
+      That plan failed pretty quickly.
+    </p>
+    <button onclick="nextStep()">Go on</button>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <h1>The fun part</h1>
+    <p class="handwritten">
+      You're easy to talk to.<br>
+      Which is slightly unfair, honestly.<br>
+      You somehow make ordinary moments feel special.
+    </p>
+    <button onclick="nextStep()">Hmm</button>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <h1>The honest part</h1>
+    <p class="handwritten">
+      I know you don't rush things.<br>
+      I noticed.<br><br>
+
+      I'm not here to pressure you.<br>
+      I just wanted to be honest about how I feel.
+    </p>
+    <button onclick="nextStep()">One last thing</button>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="emoji">🤍</div>
+    <h1>Birthday Question</h1>
+
+    <p class="handwritten">
+      Since it's your birthday today... 🎂<br><br>
+
+      I'd love to take you out on a date.<br><br>
+
+      Nothing too fancy.<br>
+      Just good food, good conversation,<br>
+      and some time with you.<br><br>
+
+      So, Arpita...<br>
+      Would you like to go on a date with me? ❤️
+    </p>
+
+    <div class="actions">
+      <button onclick="yesAnswer()">Yes ❤️</button>
+      <button id="noButton" class="secondary" type="button">No 😅</button>
+    </div>
+  </div>
+
+  <!-- YES PAGE -->
+  <div class="step">
+    <div class="emoji">🎉❤️</div>
+
+    <h1>You Made My Day!</h1>
+
+    <p class="handwritten">
+      Really?<br><br>
+
+      Then this is officially my favorite birthday celebration too. 😊<br><br>
+
+      I can't wait to spend some time with you.
+    </p>
+
+    <footer>
+      Looking forward to our date ❤️
+    </footer>
+  </div>
+
+  <!-- NO PAGE -->
+  <div class="step">
+    <div class="emoji">😊</div>
+
+    <h1>That's Okay</h1>
+
+    <p class="handwritten">
+      Thank you for reading all of this.<br><br>
+
+      I meant every word.<br><br>
+
+      And regardless of your answer,
+      I genuinely hope you have a beautiful birthday today. 🎂✨
+    </p>
+
+    <footer>
+      Happy Birthday, Arpita 🤍
+    </footer>
+  </div>
+
+</div>
+
+<script>
+let current = 0;
+const steps = document.querySelectorAll('.step');
+const noButton = document.getElementById('noButton');
+
+function showStep(index){
+  steps.forEach(step => step.classList.remove('active'));
+  steps[index].classList.add('active');
+  current = index;
+}
+
+function nextStep(){
+  if(current < 4){
+    showStep(current + 1);
+  }
+}
+
+function yesAnswer(){
+  showStep(5);
+}
+
+function noAnswer(){
+  showStep(6);
+}
+
+function moveNoButton(){
+  if (!noButton) return;
+
+  const card = document.querySelector('.card');
+  if (!card) return;
+
+  const cardRect = card.getBoundingClientRect();
+  const buttonRect = noButton.getBoundingClientRect();
+  const maxMoveX = Math.min(140, Math.max(50, cardRect.width * 0.18));
+  const maxMoveY = Math.min(70, Math.max(22, cardRect.height * 0.14));
+
+  const moveX = (Math.random() * 2 - 1) * maxMoveX;
+  const moveY = (Math.random() * 2 - 1) * maxMoveY;
+
+  noButton.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  noButton.style.transition = 'transform 0.12s ease';
+}
+
+if (noButton) {
+  noButton.addEventListener('mouseenter', moveNoButton);
+  noButton.addEventListener('mousemove', moveNoButton);
+  noButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    moveNoButton();
+  });
+}
+</script>
+
+</body>
+</html>
